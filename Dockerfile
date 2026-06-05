@@ -20,34 +20,32 @@ RUN cmake .. -DBUILD_NOTHING_BY_DEFAULT=1 -DBUILD_UDPGW=1 -DCMAKE_BUILD_TYPE=Rel
 
 WORKDIR /workdir
 
-RUN cat << 'EOF' > /etc/dropbear_banner
-<center>
-<br>
-<font color="#FF9900">▬▬▬▬▬▬▬</font><big><big><big><b><font color="#FFFFFF"> 𝗡𝗘𝗧 </font><font color="#FF9900">𝗛𝗨𝗕 </font></b></big></big></big><font color="#FF9900">▬▬▬▬▬▬▬</font>
-<br>
-<b><font color="#AAAAAA">WELCOME TO PREMIUM SERVER</font></b>
-<br>
-<font color="#FF9900">▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</font>
-<br>
-<b><font color="#AAAAAA">SERVER RULES</font></b><br>
-<font color="#FF3333">No Torrent  /  No DDOS  /  No Spam</font>
-<br>
-<font color="#FF9900">▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</font>
-<br>
-<b><font color="#AAAAAA">CHANNEL</font></b><br>
-<font color="#FFFFFF">@NET_HUB</font><br>
-<font color="#FFFFFF">t.me/NET_HUB</font>
-<br>
-<font color="#FF9900">▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</font>
-<br>
-<b><font color="#AAAAAA">MANAGEMENT</font></b><br>
-<font color="#FFFFFF">Owner</font>  <font color="#FF9900">@N0T_ROBOT</font><br>
-<font color="#FFFFFF">Admin</font>  <font color="#FF9900">@VOLTAGOO</font><br>
-<font color="#FFFFFF">Admin</font>  <font color="#FF9900">@yalubloteba</font>
-<br>
-<font color="#FF9900">▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</font>
-</center>
-EOF
+RUN echo '<center>' > /etc/dropbear_banner && \
+    echo '<br>' >> /etc/dropbear_banner && \
+    echo '<font color="#FF9900">▬▬▬▬▬▬▬</font><big><big><big><b><font color="#FFFFFF"> 𝗡𝗘𝗧 </font><font color="#FF9900">𝗛𝗨𝗕 </font></b></big></big></big><font color="#FF9900">▬▬▬▬▬▬▬</font>' >> /etc/dropbear_banner && \
+    echo '<br>' >> /etc/dropbear_banner && \
+    echo '<b><font color="#AAAAAA">WELCOME TO PREMIUM SERVER</font></b>' >> /etc/dropbear_banner && \
+    echo '<br>' >> /etc/dropbear_banner && \
+    echo '<font color="#FF9900">▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</font>' >> /etc/dropbear_banner && \
+    echo '<br>' >> /etc/dropbear_banner && \
+    echo '<b><font color="#AAAAAA">SERVER RULES</font></b><br>' >> /etc/dropbear_banner && \
+    echo '<font color="#FF3333">No Torrent  /  No DDOS  /  No Spam</font>' >> /etc/dropbear_banner && \
+    echo '<br>' >> /etc/dropbear_banner && \
+    echo '<font color="#FF9900">▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</font>' >> /etc/dropbear_banner && \
+    echo '<br>' >> /etc/dropbear_banner && \
+    echo '<b><font color="#AAAAAA">CHANNEL</font></b><br>' >> /etc/dropbear_banner && \
+    echo '<font color="#FFFFFF">@NET_HUB</font><br>' >> /etc/dropbear_banner && \
+    echo '<font color="#FFFFFF">t.me/NET_HUB</font>' >> /etc/dropbear_banner && \
+    echo '<br>' >> /etc/dropbear_banner && \
+    echo '<font color="#FF9900">▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</font>' >> /etc/dropbear_banner && \
+    echo '<br>' >> /etc/dropbear_banner && \
+    echo '<b><font color="#AAAAAA">MANAGEMENT</font></b><br>' >> /etc/dropbear_banner && \
+    echo '<font color="#FFFFFF">Owner</font>  <font color="#FF9900">@N0T_ROBOT</font><br>' >> /etc/dropbear_banner && \
+    echo '<font color="#FFFFFF">Admin</font>  <font color="#FF9900">@VOLTAGOO</font><br>' >> /etc/dropbear_banner && \
+    echo '<font color="#FFFFFF">Admin</font>  <font color="#FF9900">@yalubloteba</font>' >> /etc/dropbear_banner && \
+    echo '<br>' >> /etc/dropbear_banner && \
+    echo '<font color="#FF9900">▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</font>' >> /etc/dropbear_banner && \
+    echo '</center>' >> /etc/dropbear_banner
 
 RUN rm -rf badvpn-src && \
     mkdir -p /etc/dropbear && \
@@ -61,3 +59,4 @@ RUN echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf && \
 
 EXPOSE 8080
 CMD ["./run.sh"]
+
